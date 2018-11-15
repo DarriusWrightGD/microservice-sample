@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  todo:
+    build:
+      context: ./todo-service
+  user:
+    build:
+      context: ./user-service
+  sample:
+    build:
+      context: ./sample-service
+  gateway:
+    image: nginx
+    ports:
+      - 3001:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
